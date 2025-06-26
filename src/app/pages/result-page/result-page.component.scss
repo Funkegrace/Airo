@@ -1,0 +1,51 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+
+  h2 {
+    margin: 0;
+  }
+
+  a {
+    color: #4e33ff;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+}
+
+mat-table {
+  width: 100%;
+  margin-top: 1.5rem;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: auto;
+}
+
+mat-header-cell,
+mat-cell {
+  padding: 12px;
+  font-size: 14px;
+}
+
+.form-data-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.data-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 180px;
+}
+
+.data-icon {
+  color: #4e33ff;
+}

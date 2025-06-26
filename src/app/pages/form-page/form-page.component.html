@@ -1,0 +1,119 @@
+<section id="register">
+    <div class="content-section">
+        <form action="" [formGroup]="myForm">
+          <div style="padding-bottom: 0.5%;">
+            <mat-error *ngFor="let error of errors">
+              <img src="/assets/icons/error.svg" alt="" class="img-fluid error-icon" />
+              {{ error }}
+            </mat-error>
+          </div> 
+            <div class="name-row">
+                <div class="input-style input-md">
+                    <label class="input-label">First name</label>
+
+                    <mat-form-field appearance="outline">
+                        <input type="text" matInput formControlName="firstName" />
+
+                        <mat-error *ngIf="myFormControls['firstName'].invalid">
+                            <img src="/assets/icons/error.svg" alt="" class="img-fluid error-icon" />
+                            {{ getErrorMessage('firstName') }}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="input-style input-md">
+                    <label class="input-label">Last name</label>
+
+                    <mat-form-field appearance="outline" [style.width.%]="100">
+                        <input type="text" matInput formControlName="lastName" />
+
+                        <mat-error *ngIf="myFormControls['lastName'].invalid">
+                            <img src="/assets/icons/error.svg" alt="" class="img-fluid error-icon" />
+                            {{ getErrorMessage('lastName') }}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="input-style1 input-md">
+                <label class="input-label">Email Address <span>*</span></label>
+
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                  <input
+                    #email
+                    type="email"
+                    inputmode="email"
+                    matInput
+                    formControlName="email"
+                  />
+
+                  <mat-error *ngIf="myFormControls['email'].invalid">
+                    <img
+                      src="/assets/icons/error.svg"
+                      alt=""
+                      class="img-fluid error-icon"
+                    />
+                    {{ getErrorMessage('email') }}
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+            <div class="input-style1 input-md">
+                <label class="input-label">Password <span>*</span></label>
+
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
+                    <mat-icon matSuffix (click)="togglePasswordVisibility()">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+
+                    <mat-error *ngIf="myFormControls['password'].invalid">
+                        <img src="/assets/icons/error.svg" alt="" class="img-fluid error-icon" />
+                        {{ getErrorMessage('password') }}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="name-row">
+                <div class="input-style input-md">
+                    <label class="input-label">Subscription</label>
+                    <mat-form-field appearance="outline">
+                        <mat-select formControlName="subscription">
+                            <mat-option *ngFor="let item of subscriptions" [value]="item">{{ item }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="input-style input-md">
+                    <label class="input-label">CSV File:</label>
+                    <input type="file" (change)="onFileChange($event)" accept=".csv" />
+                    <small>
+                      Here is a sample CSV template. Please download and fill out.
+                      <a href="assets/sample.csv" style="text-decoration-line: underline;" download="sample.csv">Click here to download</a>
+                    </small>
+                    <mat-error *ngIf="myFormControls['csvFile'].invalid">
+                      <img src="/assets/icons/error.svg" alt="" class="img-fluid error-icon" />
+                      {{ getErrorMessage('csvFile') }}
+                    </mat-error>
+                </div>
+            </div>
+            <div class="btn-row">
+                <button
+                matRipple
+                type="button"
+                class="btn form-btn"
+                (click)="onSubmit()"
+              >
+               Submit
+              </button>
+              <button
+              matRipple
+              type="button"
+              class="btn clear-btn"
+            
+              mat-raised-button (click)="openDialog('0ms', '0ms')"
+              
+            >
+              Clear
+            </button>
+            </div>
+        </form>
+    </div>
+</section>

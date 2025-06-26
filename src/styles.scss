@@ -1,1 +1,137 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+a {
+  color: #4e33ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.container {  padding: 2%; }
+
+  .input-label {
+    font-size: 0.75rem;
+    margin-bottom: 0.375rem;
+    font-weight: 400;
+    text-align: start;
+    color: #222222;
+  
+    span {
+      font-size: 0.625rem;
+      font-style: italic;
+    }
+  }
+  .input-style {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  
+    .mat-form-field-appearance-outline .mat-form-field-flex {
+      padding: 0 1.125rem 0 1.125rem;
+      margin-top: 0em;
+    }
+  
+    .mat-form-field-disabled.mat-form-field-appearance-outline {
+      .mat-form-field-flex {
+        background: #f7f8f9;
+        border-radius: 0.25rem;
+  
+        input,
+        .mat-select-value {
+          color: #a0abbb;
+        }
+      }
+    }
+  
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+      top: 0em;
+    }
+  
+    .mat-form-field-appearance-outline .mat-form-field-prefix {
+      top: 0rem !important;
+      margin-right: 0.5rem !important;
+  
+      img {
+        -webkit-user-drag: none;
+      }
+    }
+  
+    .mat-form-field-appearance-outline .mat-form-field-suffix {
+      top: 0rem !important;
+      margin-left: 0.5rem !important;
+  
+      img {
+        -webkit-user-drag: none;
+      }
+  
+      .mat-button-wrapper:has(.calendar) {
+        width: 1.125rem !important;
+        height: 1.125rem !important;
+      }
+    }
+  
+    .mat-form-field:not(.mat-form-field-appearance-legacy)
+      .mat-form-field-prefix
+      .mat-icon-button,
+    .mat-form-field:not(.mat-form-field-appearance-legacy)
+      .mat-form-field-suffix
+      .mat-icon-button {
+      width: inherit !important;
+      height: inherit !important;
+      line-height: inherit !important;
+      border-radius: 0.25rem !important;
+    }
+  
+    .mat-form-field-appearance-outline .mat-form-field-infix {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 0.5rem 0 0.5rem 0;
+      border-top: none;
+  
+      &:has(input, mat-select) {
+        &:not(:has(mat-chip-list)) {
+          height: 2rem;
+        }
+  
+        &:has(mat-chip-list) {
+          min-height: 2rem;
+        }
+      }
+    }
+  
+    .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+      -webkit-transform: unset;
+      -ms-transform: unset;
+      transform: unset;
+    }
+  
+    .mat-form-field-appearance-outline .mat-form-field-subscript-wrapper {
+      margin-top: 0.5rem !important;
+    }
+  }
+
+  ::ng-deep .mat-error {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-align: start !important;
+    -ms-flex-align: start !important;
+    align-items: flex-start !important;
+    gap: 0.5rem !important;
+    font-size: 0.75rem !important;
+  
+    img {
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+  }
