@@ -100,7 +100,6 @@ export class FormPageComponent {
 
   getErrorMessage(instance: string): string {
     let message = '';
-    const errors: string[] = [];
     const control = this.myFormControls[instance];
     if (!control || !control.errors) return '';
 
@@ -108,45 +107,33 @@ export class FormPageComponent {
       case 'email':
         if (control.hasError('required')) {
           message = 'Please enter your email';
-          errors.push(message);
-          return message;
         }
         if (control.hasError('email')) {
           message = 'Sorry, this is not a valid email';
-          errors.push(message);
-          return message;
         }
         break;
 
       case 'password':
         if (control.hasError('required') || control.hasError('pattern') || control.hasError('minlength') || control.hasError('maxlength')) {
           message = 'Your password must be 8 characters long with at least one character and one special character';
-          errors.push(message);
-          return message;
         }        
         break;
 
       case 'firstName':
         if (control.hasError('containsNumber')) {
           message = 'First name should not contain numbers';
-          errors.push(message);
-          return message;
         }
         break;
 
       case 'lastName':
         if (control.hasError('containsNumber')) {
           message = 'Last name should not contain numbers';
-          errors.push(message);
-          return message;
         }
         break;
 
       case 'csvFile':
         if (control.hasError('invalid')) {
           message = 'The uploaded CSV file is invalid. Please download the sample file and try again.';
-          errors.push(message);
-          return message;
         }
         break;
 
@@ -250,6 +237,7 @@ export class FormPageComponent {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.myForm.reset({ subscription: SubscriptionPlans.ADVANCED });
+        this.errors = [];
       }
     });
   }
