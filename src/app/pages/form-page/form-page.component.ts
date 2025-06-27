@@ -238,7 +238,7 @@ export class FormPageComponent {
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     const dialogRef = this.dialog.open(ClearDialogComponent, {
-      width: '300px',
+      width: '250px',
       data: {
         title: 'Clear Form',
         message: 'Are you sure you want to clear the form?'

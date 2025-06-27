@@ -2,7 +2,9 @@
 <mat-dialog-content class="mat-typography">
   {{ data.message }}
 </mat-dialog-content>
-<mat-dialog-actions align="center">
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Yes</button>
-  <button mat-icon-button mat-dialog-close>No</button>
+<mat-dialog-actions>
+  <div class="btn-row">
+    <button [mat-dialog-close]="true" class="btn clear-btn" cdkFocusInitial>Yes</button>
+    <button mat-dialog-close class="btn form-btn">No</button>
+  </div>
 </mat-dialog-actions>

@@ -1,13 +1,15 @@
 <div class="container">
   <div class="header">
     <h2>Form Submitted</h2>
-    <a [routerLink]="['/form']" routerLinkActive="router-link-active" >Click to go back to form page</a>
+    <a routerLink="/form" routerLinkActive="router-link-active" >
+      <mat-icon class="data-icon">arrow_left</mat-icon>
+    </a>
   </div>
   
   <div class="form-data-container" *ngIf="formData">
     <div class="data-item">
       <mat-icon class="data-icon">person</mat-icon>
-      <span class="data-value"> {{ formData.firstName + " " + formData.lastName | titlecase }}</span>
+      <span class="data-value"> {{ formData.firstName + " " + formData.lastName || 'N/A' | titlecase}}</span>
     </div>
     <div class="data-item">
       <mat-icon class="data-icon">email</mat-icon>
@@ -18,26 +20,24 @@
       <span class="data-value">{{ formData.subscription | uppercase }}</span>
     </div>
   </div>
-  
-  <div *ngIf="empty" class="empty-state">
-      <p>No CSV data found. Please go back and upload a CSV file.</p>
-      <button mat-stroked-button routerLink="/">Go Back</button>
-    </div>
     
-    <div *ngIf="!empty">
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-        <ng-container *ngFor="let col of displayedColumns" [matColumnDef]="col">
-          <th mat-header-cell *matHeaderCellDef>{{ col }}</th>
-          <td mat-cell *matCellDef="let row">{{ row[col] }}</td>
-        </ng-container>
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-      <mat-paginator [pageSize]="10" [pageSizeOptions]="[10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
-    </div>
+  <ng-template #showTable>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container *ngFor="let col of displayedColumns" [matColumnDef]="col">
+        <th mat-header-cell *matHeaderCellDef>{{ col }}</th>
+        <td mat-cell *matCellDef="let row">{{ row[col] }}</td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
+  </ng-template>
   
-    <div *ngIf="!displayedColumns.length">
-      <p>No CSV data available.</p>
+    <div *ngIf="!displayedColumns.length; else showTable" class="empty-state">
+      <mat-icon class="data-icon">folder_open</mat-icon>
+      <h2>No data found</h2>
+      <p>Please upload a CSV file to view data in this table.</p>
+      <button class="btn form-btn" routerLink="/form">Go Back</button>
     </div>
 </div>

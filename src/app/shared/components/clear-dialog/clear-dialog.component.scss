@@ -1,0 +1,15 @@
+button {
+    margin-right: 8px;
+  }
+
+  ::ng-deep .mat-dialog-container {
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+  
+  mat-dialog-actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+  }

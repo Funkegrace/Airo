@@ -49,3 +49,33 @@ mat-cell {
 .data-icon {
   color: #4e33ff;
 }
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  text-align: center;
+  color: #666;
+
+  img {
+    max-width: 180px;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #444;
+  }
+
+  p {
+    margin: 8px 0 16px;
+    font-size: 1rem;
+  }
+
+  button {
+    margin-top: 10px;
+  }
+}
